@@ -1,6 +1,6 @@
 # dlfx — ICU EHR cohort (PPI vs H2RA) target trial emulation
 
-DOI: 10.5281/zenodo.18743018 (concept DOI: 10.5281/zenodo.18743017)
+DOI: 10.5281/zenodo.18743991 (concept DOI: 10.5281/zenodo.18743017)
 
 This project is a **from-zero, reproducible** scaffold to run a publishable ICU cohort study:
 
