@@ -8,8 +8,7 @@ data/**
 output/**
 !output/.gitkeep
 
-# Internal planning / writing (not part of public release)
-openspec/
+# Local-only drafts (not part of public release)
 _archive/
 docs/manuscript/
 docs/submissions/

@@ -86,8 +86,8 @@ def _should_exclude(path: Path) -> bool:
     if rel.startswith("docs/release_bundle/"):
         # Avoid recursive bundling of previous bundle outputs.
         return True
+    # Legacy path (keep excluded if present locally).
     if rel.startswith("docs/review_bundle/"):
-        # Legacy path (kept for safety in case the folder exists locally).
         return True
     # Exclude any virtualenv directory, including backups like `.venv_py314_backup_.../`.
     if path.relative_to(ROOT).parts and path.relative_to(ROOT).parts[0].startswith(".venv"):

@@ -25,7 +25,7 @@ pyproject.toml
 release_bundle/REPRODUCTION_GUIDE.md
 release_bundle/policy.md
 requirements.txt
-scripts/build_review_bundle.py
+scripts/build_release_bundle.py
 scripts/extract_eicu_duckdb.py
 scripts/extract_mimic_duckdb.py
 scripts/generate_attrition_flow.py
