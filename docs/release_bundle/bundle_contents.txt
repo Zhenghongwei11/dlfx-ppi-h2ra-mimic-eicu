@@ -5,6 +5,9 @@ LICENSE
 README.md
 configs/study_default.yaml
 configs/study_negative_control_1d.yaml
+data/.gitkeep
+data/README.md
+data/manifest.tsv
 docs/AUDIT_REPORT.md
 docs/CLAIMS.tsv
 docs/DATA_ACCESS.md

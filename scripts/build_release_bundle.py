@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import subprocess
 import shutil
 import zipfile
 from dataclasses import dataclass
@@ -67,52 +68,38 @@ def _iter_files(base: Path) -> list[Path]:
     return [p for p in sorted(base.rglob("*")) if p.is_file()]
 
 
+def _iter_git_tracked_files() -> list[Path]:
+    """Return Paths for files tracked by git.
+
+    This keeps the bundle aligned with the repository snapshot and avoids
+    accidentally packaging untracked local files.
+    """
+
+    res = subprocess.run(
+        ["git", "ls-files", "-z"],
+        cwd=str(ROOT),
+        check=True,
+        stdout=subprocess.PIPE,
+    )
+    out = res.stdout.decode("utf-8", errors="replace")
+    paths = [p for p in out.split("\x00") if p]
+    return [ROOT / p for p in sorted(paths)]
+
+
 def _should_exclude(path: Path) -> bool:
     rel = path.relative_to(ROOT).as_posix()
-    parts = set(path.parts)
 
-    # Hard excludes (never ship).
-    if rel.startswith("data/"):
-        return True
-    if rel.startswith("output/"):
-        return True
-    if rel.startswith("openspec/"):
-        # Internal planning files are excluded from the public release.
-        return True
-    if rel.startswith("docs/submissions/"):
-        return True
-    if rel.startswith("docs/manuscript/"):
-        return True
+    # Avoid recursive bundling of previous bundle outputs.
     if rel.startswith("docs/release_bundle/"):
-        # Avoid recursive bundling of previous bundle outputs.
         return True
     # Legacy path (keep excluded if present locally).
     if rel.startswith("docs/review_bundle/"):
         return True
-    # Exclude any virtualenv directory, including backups like `.venv_py314_backup_.../`.
-    if path.relative_to(ROOT).parts and path.relative_to(ROOT).parts[0].startswith(".venv"):
-        return True
-    if rel.startswith(".git/"):
-        return True
-    if rel.startswith(".pytest_cache/"):
-        return True
-    if rel.startswith(".playwright-cli/"):
-        return True
-    if rel == ".DS_Store" or rel.endswith("/.DS_Store"):
-        return True
-    if rel.startswith("_archive/"):
-        return True
-    if rel.startswith("wget-log"):
-        return True
 
-    # Drafting-only tooling (keep out of the bundle even if present locally).
+    # Keep local-only drafts out even if tracked on a workstation.
+    if rel.startswith("docs/submissions/") or rel.startswith("docs/manuscript/"):
+        return True
     if rel in {"docs/MANUSCRIPT_LINT_REPORT.md", "docs/WRITING_GUIDE.md", "scripts/lint_manuscript.py"}:
-        return True
-
-    # Avoid local caches and artifacts.
-    if "__pycache__" in parts:
-        return True
-    if rel.endswith(".pyc"):
         return True
 
     return False
@@ -184,8 +171,8 @@ def main() -> None:
         shutil.rmtree(staging)
     staging.mkdir(parents=True, exist_ok=True)
 
-    # 1) Copy repo sources (excluding data, outputs, and local-only drafts).
-    for p in _iter_files(ROOT):
+    # 1) Copy repo sources from the version-controlled snapshot.
+    for p in _iter_git_tracked_files():
         if _should_exclude(p):
             continue
         rel = p.relative_to(ROOT)
