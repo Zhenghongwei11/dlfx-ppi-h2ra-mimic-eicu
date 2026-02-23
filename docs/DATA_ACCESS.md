@@ -23,7 +23,7 @@ For journal or institutional queries, keep your own copies of:
 - DUA acceptance confirmations for each dataset
 - required human-subjects training completion certificates
 
-This repository and its review bundle intentionally do not include those documents.
+This repository and its release bundle intentionally do not include those documents.
 
 ### Steps (practical)
 
