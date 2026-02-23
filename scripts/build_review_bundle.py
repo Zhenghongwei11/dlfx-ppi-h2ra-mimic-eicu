@@ -102,7 +102,7 @@ def _should_exclude(path: Path) -> bool:
         return True
 
     # Internal drafting artifacts: keep them out of the bundle even if present locally.
-    if rel in {"docs/MANUSCRIPT_LINT_REPORT.md", "docs/WRITING_GUIDE.md"}:
+    if rel in {"docs/MANUSCRIPT_LINT_REPORT.md", "docs/WRITING_GUIDE.md", "scripts/lint_manuscript.py"}:
         return True
 
     # Avoid local caches and artifacts.
