@@ -1,4 +1,4 @@
-# STROBE + RECORD checklist (template)
+# STROBE + RECORD checklist
 
 > Fill this out when drafting the manuscript. Keep it as a living appendix for submission.
 

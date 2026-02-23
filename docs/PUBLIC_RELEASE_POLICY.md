@@ -20,7 +20,7 @@ This repository is intended for reproducible methods and aggregated, non-identif
   - any other derived patient-level tables
 - Local access/browsing artifacts:
   - `.playwright-cli/`, `wget-log*`
-- Internal planning and submission-writing artifacts:
+- Project-internal planning and submission-writing artifacts:
   - `openspec/`
   - `docs/manuscript/`
   - `docs/submissions/`

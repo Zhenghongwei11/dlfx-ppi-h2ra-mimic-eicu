@@ -14,6 +14,6 @@ This folder contains a single canonical public review bundle zip intended to be 
 - Patient-level data and extracts (all `data/` and all Parquet outputs).
 - Patient-level analysis tables (e.g., `analysis_table_used.*`).
 - Submission-only materials (cover letter, submission checklist, manuscript source).
-- Internal planning/spec scaffolding.
+- Planning/spec scaffolding.
 
 Bundle zip name: `dlfx_review_bundle_2026-02-23.zip`.

@@ -11,21 +11,21 @@ Canonical plan: `protocol/protocol.md` + `protocol/codebook.md`.
 | Stage | Status | Evidence |
 | --- | --- | --- |
 | Data access approved | DONE | User confirmed + PhysioNet download logs under `wget-log*` | 
-| Human-subjects training (CITI) | DONE | Completed 10-Feb-2026; expires 10-Feb-2029 (evidence pointers: `docs/submissions/JIMR/PHYSIONET_ACCESS_EVIDENCE.md`) |
+| Human-subjects training (CITI) | DONE | Completed 10-Feb-2026; expires 10-Feb-2029 (records kept by authors; not distributed here) |
 | Raw archives downloaded | DONE | `data/raw/physionet/mimiciv-3.1.zip`, `data/raw/physionet/eicu-crd-2.0.zip` |
 | Analysis-ready cohort table exported | DONE | `data/mimic_sup_ppi_h2ra.parquet`, `data/eicu_sup_ppi_h2ra.parquet` |
 | Real-cohort mainline analysis run | DONE | `output/mimic_run/`, `output/eicu_run/` |
 | Sensitivity suite run (real cohorts) | DONE | `output/multicohort_run/combined/sensitivity_summary.tsv` (S1–S6 + G1–G3); per-sensitivity runs under `output/multicohort_run/sensitivity/` |
 | External validation (eICU) run | DONE | `output/multicohort_run/` (per-cohort + combined) |
-| Manuscript drafting | IN PROGRESS | `docs/manuscript/outline.md`, `docs/manuscript/manuscript.md` |
-| Journal submission pack | IN PROGRESS | Templates under `docs/submissions/JIMR/` |
+| Manuscript drafting | IN PROGRESS | Manuscript files are maintained separately (not distributed in this repo). |
+| Journal submission pack | IN PROGRESS | Submission pack files are maintained separately (not distributed in this repo). |
 | Figure 4 + supplement anchors generated | DONE | `output/multicohort_run/combined/figure4_sensitivity.png` + `output/multicohort_run/combined/supplement_table_S1_strict_cigib.tsv` + `output/multicohort_run/combined/supplement_table_S2_secondary_outcomes.tsv` |
 
 ## Current state
 - Protocol: drafted (`protocol/protocol.md`)
 - Codebook/schema: drafted (`protocol/codebook.md`)
 - Data access: approved (MIMIC-IV + eICU) and raw archives downloaded (see below)
-- Training: CITI “Data or Specimens Only Research” completed 10-Feb-2026; expires 10-Feb-2029 (see `docs/submissions/JIMR/PHYSIONET_ACCESS_EVIDENCE.md`)
+- Training: CITI “Data or Specimens Only Research” completed 10-Feb-2026; expires 10-Feb-2029 (records kept by authors; not distributed here)
 - Pipeline scaffold: present (synthetic smoke tests already run under `output/`)
 
 ### Local raw data (do not commit)
@@ -47,7 +47,7 @@ Canonical plan: `protocol/protocol.md` + `protocol/codebook.md`.
 - First real cohort analysis table exported: DONE (`data/*.parquet` present)
 - Protocol freeze status: FROZEN (see `docs/PROTOCOL_FREEZE.md`)
 - Data sources manifest: see `data/manifest.tsv`
-- Target journal: Biomedicine & Pharmacotherapy (primary); JIMR (backup) (see `docs/JOURNAL_TARGET.md`)
+- Target journal: determined by the authors during submission (journal planning notes are not distributed here)
 
 ## Recent changes (important for reproducibility)
 - 2026-02-18: MIMIC lab extraction in `sql/mimic/build_analysis_table.sql` was corrected from label matching to explicit `itemid` mapping (prevents LDH being misclassified as lactate and other label collisions). All real-cohort outputs were regenerated after this fix (mainline + sensitivity suite + Figure 4 anchors).

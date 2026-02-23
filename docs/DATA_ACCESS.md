@@ -16,13 +16,14 @@ You can develop and smoke-test the pipeline using **open demo datasets**, but to
 
 - CITI: **Data or Specimens Only Research**
 
-### Local evidence (not committed)
+### Records you should keep (not distributed)
 
-The following training evidence PDFs exist on the submission workstation desktop and are not included in this repository:
-- `citiCompletionCertificate_15351349_75289558.pdf` (completion 10-Feb-2026; expires 10-Feb-2029; record ID 75289558)
-- `citiCompletionReport_15351349_75289558.pdf` (details of modules; reported score 97)
+For journal or institutional queries, keep your own copies of:
+- PhysioNet credentialing approval
+- DUA acceptance confirmations for each dataset
+- required human-subjects training completion certificates
 
-For submission packaging, see `docs/submissions/JIMR/PHYSIONET_ACCESS_EVIDENCE.md`.
+This repository and its review bundle intentionally do not include those documents.
 
 ### Steps (practical)
 
@@ -73,4 +74,3 @@ After downloading a demo dataset you can either:
 
 Do not commit or share any patient-level extracts.
 Keep all extracted tables under `dlfx/data/` (already gitignored) and follow DUA restrictions.
-

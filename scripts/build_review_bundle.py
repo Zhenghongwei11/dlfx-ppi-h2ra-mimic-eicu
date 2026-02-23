@@ -101,7 +101,7 @@ def _should_exclude(path: Path) -> bool:
     if rel.startswith("wget-log"):
         return True
 
-    # Internal drafting artifacts: keep them out of the bundle even if present locally.
+    # Drafting artifacts: keep them out of the bundle even if present locally.
     if rel in {"docs/MANUSCRIPT_LINT_REPORT.md", "docs/WRITING_GUIDE.md", "scripts/lint_manuscript.py"}:
         return True
 
@@ -139,7 +139,7 @@ def _bundle_policy_text(zip_name: str) -> str:
         "- Patient-level data and extracts (all `data/` and all Parquet outputs).\n"
         "- Patient-level analysis tables (e.g., `analysis_table_used.*`).\n"
         "- Submission-only materials (cover letter, submission checklist, manuscript source).\n"
-        "- Internal planning/spec scaffolding.\n\n"
+        "- Planning/spec scaffolding.\n\n"
         f"Bundle zip name: `{zip_name}`.\n"
     )
 

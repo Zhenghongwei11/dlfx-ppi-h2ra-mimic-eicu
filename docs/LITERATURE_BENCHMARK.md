@@ -1,6 +1,6 @@
 # Literature Benchmark (Writing + Positioning)
 
-Goal: benchmark recent high-impact (Q1/Q2) papers and guidelines to calibrate structure, reporting depth, and limitation language for an ICU SUP comparative effectiveness cohort study (PPI vs H2RA) with external validation.
+Goal: benchmark recent comparative-effectiveness papers and reporting guidelines to calibrate structure, reporting depth, and limitation language for an ICU SUP cohort study (PPI vs H2RA) with external validation.
 
 ## Peer Papers / Guidelines (minimum set)
 
@@ -29,8 +29,7 @@ Writing tactics to copy into our manuscript:
 - **Limitations style:** specific threats + what was done to mitigate them (not generic disclaimers); separate “measurement limitations” from “confounding limitations”.
 - **Interpretation discipline:** avoid recommendation language unless directly supported by design; explicitly describe what would change the conclusion (e.g., improved endpoint validation, alternative outcome definitions).
 
-Revision checklist (apply before final submission):
+Revision notes (apply before final submission):
 - Verify that each Results paragraph contains: finding + magnitude/CI + anchor (Figure/Table/Source Data label).
 - Ensure pooled results are reported only for compatible estimands (HR with HR; RR with RR).
 - Ensure the Discussion does not imply guideline-level recommendations; emphasize hypothesis-generating nature when residual confounding remains plausible.
-

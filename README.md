@@ -1,5 +1,7 @@
 # dlfx — ICU EHR cohort (PPI vs H2RA) target trial emulation
 
+DOI: 10.5281/zenodo.18743018 (concept DOI: 10.5281/zenodo.18743017)
+
 This project is a **from-zero, reproducible** scaffold to run a publishable ICU cohort study:
 
 > In adult ICU patients with stress ulcer prophylaxis (SUP) indications, what are the real‑world benefits/harms of **PPI vs H2RA**?

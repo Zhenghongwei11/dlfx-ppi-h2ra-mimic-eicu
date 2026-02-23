@@ -1,6 +1,6 @@
-# Audit Report (Internal)
+# Audit Report (Traceability)
 
-This file is the internal traceability layer. It may reference internal artifact paths, run audits, and claim IDs.
+This file maps each planned claim to the pre-specified outputs used as supporting evidence.
 
 ## Canonical protocol
 - Protocol: `protocol/protocol.md`
