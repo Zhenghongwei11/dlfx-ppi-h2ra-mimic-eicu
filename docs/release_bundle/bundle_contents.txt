@@ -22,9 +22,9 @@ protocol/codebook.md
 protocol/protocol.md
 protocol/strobe_record_checklist.md
 pyproject.toml
+release_bundle/REPRODUCTION_GUIDE.md
+release_bundle/policy.md
 requirements.txt
-review_bundle/REVIEWER_GUIDE.md
-review_bundle/policy.md
 scripts/build_review_bundle.py
 scripts/extract_eicu_duckdb.py
 scripts/extract_mimic_duckdb.py

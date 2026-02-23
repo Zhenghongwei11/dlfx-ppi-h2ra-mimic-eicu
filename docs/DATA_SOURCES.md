@@ -16,7 +16,7 @@ These datasets are public but access-controlled on PhysioNet; follow `docs/DATA_
 - MIMIC-IV Demo / eICU Demo: used only for rehearsal and smoke testing.
 - Synthetic analysis tables: used only for pipeline tests (see `scripts/generate_synthetic_table.py`).
 
-## Canonical definitions and code lists
+## Definitions and code lists
 - Study design and estimands: `protocol/protocol.md`
 - Variable definitions, time windows, and initial code lists: `protocol/codebook.md`
 

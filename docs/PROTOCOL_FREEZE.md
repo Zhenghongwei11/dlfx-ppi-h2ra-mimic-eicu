@@ -4,7 +4,7 @@
 - Freeze status: FROZEN
 - Last reviewed: 2026-02-18
 - Freeze date: 2026-02-17
-- Candidate freeze reference (integrity): SHA256 of canonical files
+- Candidate freeze reference (integrity): SHA256 of reference files
   - `protocol/protocol.md`: f59dd5448442ceb5d3cbe0b8d49ab2b8a570b2a7ca5ee21a76adcb71c698d15f
   - `protocol/codebook.md`: 4a8860f13732374cfc3eead197e9a47731726a8ae3eebc830feddcefd2a8a132
 
@@ -13,7 +13,7 @@
 - eICU run: `output/eicu_run/`
 - Multicohort run (MIMIC + eICU + combined): `output/multicohort_run/`
 
-## Canonical Study Files
+## Reference study files
 - `protocol/protocol.md` (study design, estimands, eligibility, exposure, outcomes, covariates, analyses)
 - `protocol/codebook.md` (analysis-ready table contract: columns, windows, code lists)
 
@@ -28,7 +28,7 @@ Any change that affects eligibility, exposure, outcome definitions, time windows
 
 If a deviation is required:
 - Record it in a deviation log (append to this file under "Deviations")
-- State the reason (data limitation, mapping differences, bug fix, reviewer request)
+- State the reason (data limitation, mapping differences, bug fix, submission request)
 - State the impact (which claims, outcomes, or figures are affected)
 - Add a replacement/mitigation analysis if needed
 

@@ -2,7 +2,7 @@
 
 This file maps each planned claim to the pre-specified outputs used as supporting evidence.
 
-## Canonical protocol
+## Reference protocol
 - Protocol: `protocol/protocol.md`
 - Codebook/contract: `protocol/codebook.md`
 - Freeze record: `docs/PROTOCOL_FREEZE.md`

@@ -5,7 +5,7 @@ Last updated: 2026-02-22
 ## What this project is
 ICU EHR observational cohort study using target trial emulation: SUP indication patients, PPI vs H2RA, outcomes CIGIB/CDI/mortality, MIMIC-IV discovery + eICU external validation.
 
-Canonical plan: `protocol/protocol.md` + `protocol/codebook.md`.
+Study plan: `protocol/protocol.md` + `protocol/codebook.md`.
 
 ## Where we are (evidence-based)
 | Stage | Status | Evidence |

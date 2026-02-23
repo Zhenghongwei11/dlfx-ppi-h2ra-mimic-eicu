@@ -21,18 +21,18 @@ class CopyRule:
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(
         description=(
-            "Build a sanitized public review bundle zip (journal supplementary zip == GitHub release zip). "
-            "Excludes patient-level data and submission-only materials."
+            "Build a sanitized public release bundle zip (GitHub release asset / supplementary zip). "
+            "Excludes patient-level data and local-only drafting materials."
         )
     )
     p.add_argument(
         "--outdir",
-        default=str(ROOT / "docs" / "review_bundle"),
+        default=str(ROOT / "docs" / "release_bundle"),
         help="Output directory for bundle artifacts (zip + manifests).",
     )
     p.add_argument(
         "--name",
-        default=f"dlfx_review_bundle_{_today()}",
+        default=f"dlfx_release_bundle_{_today()}",
         help="Base name for the zip (without .zip).",
     )
     p.add_argument(
@@ -77,13 +77,17 @@ def _should_exclude(path: Path) -> bool:
     if rel.startswith("output/"):
         return True
     if rel.startswith("openspec/"):
+        # Internal planning files are excluded from the public release.
         return True
     if rel.startswith("docs/submissions/"):
         return True
     if rel.startswith("docs/manuscript/"):
         return True
-    if rel.startswith("docs/review_bundle/"):
+    if rel.startswith("docs/release_bundle/"):
         # Avoid recursive bundling of previous bundle outputs.
+        return True
+    if rel.startswith("docs/review_bundle/"):
+        # Legacy path (kept for safety in case the folder exists locally).
         return True
     # Exclude any virtualenv directory, including backups like `.venv_py314_backup_.../`.
     if path.relative_to(ROOT).parts and path.relative_to(ROOT).parts[0].startswith(".venv"):
@@ -101,7 +105,7 @@ def _should_exclude(path: Path) -> bool:
     if rel.startswith("wget-log"):
         return True
 
-    # Drafting artifacts: keep them out of the bundle even if present locally.
+    # Drafting-only tooling (keep out of the bundle even if present locally).
     if rel in {"docs/MANUSCRIPT_LINT_REPORT.md", "docs/WRITING_GUIDE.md", "scripts/lint_manuscript.py"}:
         return True
 
@@ -124,41 +128,40 @@ def _should_exclude_output_artifact(path: Path) -> bool:
     return False
 
 
-def _bundle_policy_text(zip_name: str) -> str:
+def _bundle_policy_text() -> str:
     return (
-        "# Review Bundle Policy\n\n"
-        "This folder contains a single canonical public review bundle zip intended to be byte-identical for:\n"
-        "- journal supplementary submission, and\n"
-        "- GitHub release distribution.\n\n"
+        "# Public Release Bundle Policy\n\n"
+        "This folder contains the public release bundle zip intended for:\n"
+        "- GitHub release distribution, and\n"
+        "- journal supplementary upload (if needed).\n\n"
         "## Included\n"
         "- Source code and scripts required to reproduce the analysis (requires PhysioNet credentialed access).\n"
-        "- Protocol and codebook describing the analysis-table contract and prespecified analyses.\n"
+        "- Protocol and codebook describing the analysis-table contract and analysis plan.\n"
         "- Non-patient-level derived artifacts (aggregate tables/figures) copied into the bundle under `artifacts/`.\n"
         "- Run audits (JSON) where they do not contain patient-level data.\n\n"
         "## Excluded (intentional)\n"
         "- Patient-level data and extracts (all `data/` and all Parquet outputs).\n"
         "- Patient-level analysis tables (e.g., `analysis_table_used.*`).\n"
-        "- Submission-only materials (cover letter, submission checklist, manuscript source).\n"
-        "- Planning/spec scaffolding.\n\n"
-        f"Bundle zip name: `{zip_name}`.\n"
+        "- Local-only drafts, notes, and submission documents not required to reproduce the analysis.\n"
     )
 
 
-def _reviewer_guide_text() -> str:
+def _reproduction_guide_text() -> str:
     return (
-        "# Reviewer Guide\n\n"
-        "This bundle is designed to support review of code and aggregate results.\n\n"
-        "## What you can reproduce from this bundle\n"
-        "- Aggregate effect tables, sensitivity summaries, and diagnostic figures are provided under `artifacts/`.\n"
-        "- Full end-to-end regeneration requires access-controlled data (MIMIC-IV and eICU-CRD) via PhysioNet.\n\n"
+        "# Reproduction Guide\n\n"
+        "This repository distributes code and aggregated (non-identifying) outputs for a cohort study using "
+        "access-controlled ICU EHR datasets.\n\n"
+        "## What you can reproduce from this package\n"
+        "- Aggregate effect tables, sensitivity summaries, and diagnostic figures are provided under `artifacts/` inside the bundle zip.\n"
+        "- Full end-to-end regeneration requires credentialed access to MIMIC-IV and eICU-CRD via PhysioNet.\n\n"
         "## How to reproduce (requires PhysioNet access)\n"
         "1) Create a Python environment (Python 3.12 recommended).\n"
         "2) Install dependencies: `pip install -r requirements.txt`.\n"
-        "3) Place PhysioNet zip archives in `data/raw/physionet/` (paths documented in the extraction scripts).\n"
-        "4) Run extraction scripts to generate analysis-ready tables.\n"
+        "3) Obtain the PhysioNet zip archives for MIMIC-IV and eICU-CRD and place them under `data/raw/physionet/`.\n"
+        "4) Run the extraction scripts to generate analysis-ready tables.\n"
         "5) Run the multicohort pipeline and sensitivity suite.\n\n"
         "## Notes\n"
-        "- Patient-level data are not distributed in this bundle.\n"
+        "- Patient-level data are not distributed in this repository or the bundle.\n"
     )
 
 
@@ -181,7 +184,7 @@ def main() -> None:
         shutil.rmtree(staging)
     staging.mkdir(parents=True, exist_ok=True)
 
-    # 1) Copy repo sources (excluding submission-only + data + openspec + outputs).
+    # 1) Copy repo sources (excluding data, outputs, and local-only drafts).
     for p in _iter_files(ROOT):
         if _should_exclude(p):
             continue
@@ -223,13 +226,13 @@ def main() -> None:
     for r in artifact_rules:
         _safe_copy_file(r.src, staging / r.dst_rel)
 
-    # 3) Add policy + reviewer guide.
-    (outdir / "policy.md").write_text(_bundle_policy_text(zip_name), encoding="utf-8")
-    (outdir / "REVIEWER_GUIDE.md").write_text(_reviewer_guide_text(), encoding="utf-8")
+    # 3) Add policy + reproduction guide.
+    (outdir / "policy.md").write_text(_bundle_policy_text(), encoding="utf-8")
+    (outdir / "REPRODUCTION_GUIDE.md").write_text(_reproduction_guide_text(), encoding="utf-8")
 
     # Include these two docs inside the zip as well.
-    _safe_copy_file(outdir / "policy.md", staging / "review_bundle" / "policy.md")
-    _safe_copy_file(outdir / "REVIEWER_GUIDE.md", staging / "review_bundle" / "REVIEWER_GUIDE.md")
+    _safe_copy_file(outdir / "policy.md", staging / "release_bundle" / "policy.md")
+    _safe_copy_file(outdir / "REPRODUCTION_GUIDE.md", staging / "release_bundle" / "REPRODUCTION_GUIDE.md")
 
     # 4) Build zip.
     if zip_path.exists() and not args.overwrite:
@@ -239,7 +242,6 @@ def main() -> None:
     _zip_dir(staging, zip_path)
 
     # 5) Manifests: zip checksum + file list + per-file checksums.
-    contents = []
     with zipfile.ZipFile(zip_path, "r") as zf:
         contents = sorted(zf.namelist())
     (outdir / "bundle_contents.txt").write_text("\n".join(contents) + "\n", encoding="utf-8")
@@ -258,7 +260,6 @@ def main() -> None:
 
     # Clean staging.
     shutil.rmtree(staging)
-    print(f"Wrote review bundle: {zip_path}")
 
 
 if __name__ == "__main__":

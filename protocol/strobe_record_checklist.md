@@ -13,7 +13,7 @@
 ### Introduction
 - [x] Background/rationale
   - Manuscript: Introduction
-- [x] Objectives and prespecified hypotheses
+- [x] Objectives and planned hypotheses
   - Protocol: `protocol/protocol.md` (Study question + estimands)
   - Manuscript: Introduction (objective statement)
 
@@ -80,7 +80,7 @@
 - [x] Validation studies referenced (or proxy limitations stated)
   - This study uses operational definitions/proxies implemented consistently across cohorts (see `protocol/codebook.md`).
   - Where validated phenotypes/algorithms are not available in both databases, we:
-    - use a prespecified proxy definition,
+    - use a planned proxy definition,
     - report it as a limitation (residual misclassification risk),
     - and include robustness checks (Figure 4 / Source Data 6).
   - If a validated algorithm is adopted later (e.g., for CIGIB/CDI), add citations and document mapping differences across MIMIC vs eICU.

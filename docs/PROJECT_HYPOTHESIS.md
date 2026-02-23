@@ -8,6 +8,5 @@ Among adult ICU patients who meet stress ulcer prophylaxis (SUP) high-risk indic
 2) Comparative safety on *C. difficile* infection (CDI).
 3) Comparative effect on mortality (28-day or in-hospital), with external validation in eICU.
 
-## Canonical definitions
+## Definitions
 See `protocol/protocol.md` and `protocol/codebook.md` for fixed windows, code lists, and analysis details.
-

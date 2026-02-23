@@ -174,7 +174,7 @@ def main() -> None:
         ax_b.axis("off")
 
     if n_panels == 3:
-        forest(ax_c, c, "Figure 4C. Prespecified subgroup (SUP indication driver)")
+        forest(ax_c, c, "Figure 4C. Planned subgroup (SUP indication driver)")
 
     plt.tight_layout()
     png = outdir / "figure4_sensitivity.png"
@@ -191,4 +191,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

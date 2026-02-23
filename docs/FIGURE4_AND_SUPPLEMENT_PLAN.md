@@ -9,7 +9,7 @@ Source-of-truth table for all sensitivity/subgroup results:
 
 **Goal:** Demonstrate robustness of the **primary outcome (strict CIGIB)** association without overloading the main paper with secondary endpoints or exploratory subgroup fishing.
 
-### Figure 4A: Prespecified sensitivity suite (HR scale; strict CIGIB)
+### Figure 4A: Planned sensitivity suite (HR scale; strict CIGIB)
 Include **strict CIGIB** only, reporting **pooled** effect (and optionally cohort-specific markers in lighter color):
 
 - Mainline (landmark 24h; reference)
@@ -30,7 +30,7 @@ Competing-risk analysis uses a different effect measure; do not mix it into the 
 - S6: Death as competing event (`S6_COMPETING_RISK_DEATH`)
   - Use `outcome == cigib_strict_competing_risk_death` (CIF-RR at 14d)
 
-### Figure 4C (optional, main): Prespecified heterogeneity check (one subgroup only)
+### Figure 4C (optional, main): Planned heterogeneity check (one subgroup only)
 Include only the most clinically interpretable, pre-registered subgroup as a single main-figure panel:
 
 - G1: SUP indication driver proxy (`G1_SUBGROUP_SUP_DRIVER`)

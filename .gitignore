@@ -18,8 +18,8 @@ docs/submissions/
 docs/MANUSCRIPT_LINT_REPORT.md
 docs/WRITING_GUIDE.md
 
-# Old review bundles (keep only the latest canonical bundle)
-docs/review_bundle/archive/
+# Old release bundles (keep only the latest canonical bundle)
+docs/release_bundle/archive/
 
 # Local browsing / access artifacts (do not commit)
 .playwright-cli/
@@ -49,4 +49,3 @@ src/*.egg-info/
 # Temporary working files
 /tmp/
 tmp/
-
