@@ -2,15 +2,12 @@ cff-version: 1.2.0
 message: "If you use this software, please cite it."
 title: "dlfx: Target trial emulation for ICU stress ulcer prophylaxis (PPI vs H2RA) using MIMIC-IV with eICU external validation"
 type: software
-version: 0.1.0
-doi: 10.5281/zenodo.18743018
+version: 0.1.3
+doi: 10.5281/zenodo.18743017
 identifiers:
   - type: doi
     value: 10.5281/zenodo.18743017
     description: Concept DOI (all versions)
-  - type: doi
-    value: 10.5281/zenodo.18743018
-    description: Version DOI (v0.1.1)
 license: MIT
 authors:
   - family-names: Zheng

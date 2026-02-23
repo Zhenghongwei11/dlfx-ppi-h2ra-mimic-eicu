@@ -8,12 +8,10 @@ configs/study_negative_control_1d.yaml
 docs/AUDIT_REPORT.md
 docs/CLAIMS.tsv
 docs/DATA_ACCESS.md
-docs/DATA_PLAN.md
 docs/DATA_SOURCES.md
 docs/EXTRACTION_LOCAL_DUCKDB.md
 docs/FIGURE4_AND_SUPPLEMENT_PLAN.md
 docs/FIGURE_STORYBOARD.tsv
-docs/LITERATURE_BENCHMARK.md
 docs/PROJECT_HYPOTHESIS.md
 docs/PROJECT_STATUS.md
 docs/PROTOCOL_FREEZE.md

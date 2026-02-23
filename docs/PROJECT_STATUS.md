@@ -10,7 +10,7 @@ Canonical plan: `protocol/protocol.md` + `protocol/codebook.md`.
 ## Where we are (evidence-based)
 | Stage | Status | Evidence |
 | --- | --- | --- |
-| Data access approved | DONE | User confirmed + PhysioNet download logs under `wget-log*` | 
+| Data access approved | DONE | PhysioNet access approved for required datasets (records kept by authors; not distributed here) |
 | Human-subjects training (CITI) | DONE | Completed 10-Feb-2026; expires 10-Feb-2029 (records kept by authors; not distributed here) |
 | Raw archives downloaded | DONE | `data/raw/physionet/mimiciv-3.1.zip`, `data/raw/physionet/eicu-crd-2.0.zip` |
 | Analysis-ready cohort table exported | DONE | `data/mimic_sup_ppi_h2ra.parquet`, `data/eicu_sup_ppi_h2ra.parquet` |
