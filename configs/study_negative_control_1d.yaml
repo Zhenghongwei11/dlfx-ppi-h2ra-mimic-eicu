@@ -1,0 +1,30 @@
+treatment_col: treatment
+treated_label: ppi
+control_label: h2ra
+
+covariates:
+  - age_years
+  - sex
+  - race
+  - sofa_24h
+  - hgb_min_24h
+  - platelet_min_24h
+  - inr_max_24h
+  - creatinine_max_24h
+  - lactate_max_24h
+
+ps:
+  spline_continuous: true
+  spline_n_knots: 5
+  spline_degree: 3
+  weight_truncation: [0.01, 0.99]
+
+# Negative-control window: early post-index horizon where a true causal effect is less plausible.
+outcomes:
+  - name: cigib_strict
+    label: Strict CIGIB (negative-control window, 1 day)
+    event_col: cigib_strict_event
+    time_col: cigib_strict_time_days
+    horizon_days: 1
+    required: true
+

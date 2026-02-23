@@ -1,0 +1,15 @@
+submission_label	item_type	description	internal_artifact	notes
+Figure 1	Figure	Cohort flow / attrition summary	Source Data 2	Use in main text: “Figure 1”; do not cite internal paths.
+Figure 2	Figure	Covariate balance diagnostics (love plot)	Source Data 5	Balance threshold: max |SMD| < 0.1 post-weighting.
+Figure 3	Figure	Primary effect estimates (MIMIC + eICU + pooled)	Source Data 1	Forest-style presentation with HR and 95% CI.
+Figure 4	Figure	Sensitivity analyses summary (primary outcome robustness)	Source Data 6	Main figure focuses on strict CIGIB robustness (S1–S6) plus limited prespecified subgroup summary; full outcome-by-sensitivity table is in the supplement plan.
+Table 1	Table	Baseline characteristics (MIMIC)	Source Data 3	Weighted and unweighted summaries.
+Table 2	Table	Baseline characteristics (eICU)	Source Data 4	Weighted and unweighted summaries; note missingness.
+Source Data 1	Source Data	Combined effect estimates across cohorts	output/multicohort_run/combined/effect_estimates_combined.csv	Primary citation target for effect size statements (submission uses label only).
+Source Data 2	Source Data	Cohort flow / attrition table	output/multicohort_run/combined/attrition_flow.tsv	Counts by step for MIMIC and eICU.
+Source Data 3	Source Data	Table 1 export (MIMIC)	output/multicohort_run/mimic/tables/table1.csv	Includes SMDs; may be refined for publication formatting.
+Source Data 4	Source Data	Table 1 export (eICU)	output/multicohort_run/eicu/tables/table1.csv	Includes missingness indicators.
+Source Data 5	Source Data	Balance diagnostics tables/plots	output/multicohort_run/mimic/tables/balance_smd.csv; output/multicohort_run/eicu/tables/balance_smd.csv	Use max |SMD| post-weighting; include overlap plots in supplement if needed.
+Source Data 6	Source Data	Sensitivity + subgroup summary table	output/multicohort_run/combined/sensitivity_summary.tsv	Includes S1–S6 (landmark/definition/negative-control/competing-risk) and G1–G3 subgroups; see `docs/FIGURE4_AND_SUPPLEMENT_PLAN.md` for what is shown in main vs supplement.
+Supplement Table S1	Supplement	Strict CIGIB sensitivity + subgroup results (all cohorts)	output/multicohort_run/combined/supplement_table_S1_strict_cigib.tsv	Derived from Source Data 6; includes cigib_strict and competing-risk row.
+Supplement Table S2	Supplement	Secondary outcomes across sensitivities + subgroups	output/multicohort_run/combined/supplement_table_S2_secondary_outcomes.tsv	Derived from Source Data 6; interpret CDI cautiously given ascertainment differences.

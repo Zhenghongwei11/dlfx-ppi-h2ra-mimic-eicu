@@ -1,0 +1,52 @@
+# Data (never commit EHR extracts)
+data/**
+!data/.gitkeep
+!data/README.md
+!data/manifest.tsv
+
+# Outputs
+output/**
+!output/.gitkeep
+
+# Internal planning / writing (not part of public release)
+openspec/
+_archive/
+docs/manuscript/
+docs/submissions/
+
+# Internal drafting / writing checklists (not required for reproduction)
+docs/MANUSCRIPT_LINT_REPORT.md
+docs/WRITING_GUIDE.md
+
+# Old review bundles (keep only the latest canonical bundle)
+docs/review_bundle/archive/
+
+# Local browsing / access artifacts (do not commit)
+.playwright-cli/
+wget-log*
+
+# Manuscript tooling (not part of public release)
+scripts/lint_manuscript.py
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+.python-version
+
+# Packaging/build artifacts
+src/*.egg-info/
+
+# R
+.Rhistory
+.RData
+.Rproj.user/
+
+# OS
+.DS_Store
+
+# Temporary working files
+/tmp/
+tmp/
+

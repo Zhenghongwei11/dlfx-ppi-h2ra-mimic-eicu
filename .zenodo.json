@@ -1,0 +1,25 @@
+{
+  "title": "dlfx: Target trial emulation for ICU stress ulcer prophylaxis (PPI vs H2RA) using MIMIC-IV with eICU external validation",
+  "upload_type": "software",
+  "description": "Reproducible analysis code and aggregated outputs for an observational ICU cohort study using target trial emulation (PPI vs H2RA) in MIMIC-IV with external validation in eICU-CRD. Patient-level data are not included; access requires PhysioNet credentialing and DUAs.",
+  "creators": [
+    {
+      "name": "Zheng, Hongwei",
+      "affiliation": "School of Medicine, Quanzhou Medical College, Quanzhou, Fujian, People's Republic of China"
+    },
+    {
+      "name": "Chen, Wenbiao",
+      "affiliation": "School of Medicine, Quanzhou Medical College, Quanzhou, Fujian, People's Republic of China"
+    }
+  ],
+  "keywords": [
+    "critical care",
+    "stress ulcer prophylaxis",
+    "target trial emulation",
+    "propensity score",
+    "inverse probability of treatment weighting",
+    "MIMIC-IV",
+    "eICU"
+  ],
+  "license": "MIT"
+}

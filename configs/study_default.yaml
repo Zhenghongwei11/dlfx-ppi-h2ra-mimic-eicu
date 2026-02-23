@@ -1,0 +1,46 @@
+treatment_col: treatment
+treated_label: ppi
+control_label: h2ra
+
+covariates:
+  - age_years
+  - sex
+  - race
+  - sofa_24h
+  - hgb_min_24h
+  - platelet_min_24h
+  - inr_max_24h
+  - creatinine_max_24h
+  - lactate_max_24h
+
+ps:
+  spline_continuous: true
+  spline_n_knots: 5
+  spline_degree: 3
+  weight_truncation: [0.01, 0.99]
+
+outcomes:
+  - name: cigib_strict
+    label: Strict CIGIB (primary)
+    event_col: cigib_strict_event
+    time_col: cigib_strict_time_days
+    horizon_days: 14
+    required: true
+  - name: ugib_broad
+    label: Broad UGIB (ICD-based)
+    event_col: ugib_broad_event
+    time_col: ugib_broad_time_days
+    horizon_days: 14
+    required: false
+  - name: cdi
+    label: C. difficile (lab/ICD)
+    event_col: cdi_event
+    time_col: cdi_time_days
+    horizon_days: 14
+    required: false
+  - name: death
+    label: Mortality
+    event_col: death_event_28d
+    time_col: death_time_days
+    horizon_days: 28
+    required: false

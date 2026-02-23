@@ -1,0 +1,5 @@
+dataset_id	name	intended_role	access_link	version	access_date	usage_terms	notes	local_raw_archive_path	local_extract_path
+mimic_iv_clinical	MIMIC-IV Clinical Database	discovery	https://physionet.org/content/mimiciv/3.1/	3.1	2026-02-17	PhysioNet DUA (access-controlled)	Raw archive downloaded; extract with `sql/mimic/` to one-row-per-ICU-stay analysis table.	data/raw/physionet/mimiciv-3.1.zip	data/mimic_sup_ppi_h2ra.parquet
+eicu_crd	eICU Collaborative Research Database (eICU-CRD)	external_validation	https://physionet.org/content/eicu-crd/2.0/	2.0	2026-02-17	PhysioNet DUA (access-controlled)	Raw archive downloaded; extract with `sql/eicu/` to comparable analysis table.	data/raw/physionet/eicu-crd-2.0.zip	data/eicu_sup_ppi_h2ra.parquet
+mimic_iv_demo	MIMIC-IV Demo (open subset)	smoke_rehearsal	https://physionet.org/	demo		PhysioNet terms (open)	For rehearsal only; not publishable main results.		data/mimic_demo_extract.parquet
+eicu_demo	eICU Demo (open subset)	smoke_rehearsal	https://physionet.org/	demo		PhysioNet terms (open)	For rehearsal only; not publishable main results.		data/eicu_demo_extract.parquet

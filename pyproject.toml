@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dlfx"
+version = "0.1.0"
+description = "Public ICU EHR cohort scaffold (PPI vs H2RA) using target trial emulation."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+  "numpy>=1.23",
+  "pandas>=1.5",
+  "scipy>=1.10",
+  "scikit-learn>=1.2",
+  "statsmodels>=0.14",
+  "matplotlib>=3.7",
+  "pyyaml>=6.0",
+  "pyarrow>=14.0",
+  "duckdb>=1.0.0",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
